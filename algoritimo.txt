@@ -1,0 +1,60 @@
+Algoritmo "controle de abastecimento de aeronaves"
+
+Var
+
+  kmplanejado, alternativo, tanque, medialitros, abastecida, seg : real
+  trechototal, litrostotal, margem, trechocmargem, abastecer, litrosseg : real
+
+  Inicio
+
+        escreval(" --------------------------------------------- ")
+        escreval(" --- CONTROLE DE ABASTECIMENTO DE AERONAVE --- ")
+        escreval(" --------------------------------------------- ")
+
+  escreva("Informe em quilômetros a distância do trecho planejado: ")
+          leia(kmplanejado)
+
+  escreva("Informe em quilômetros a distância do trecho alternativo: ")
+          leia(alternativo)
+
+  escreva("Informe a capacidade máxima em litros do tanque da aeronave: ")
+          leia(tanque)
+
+  escreva("Informe quantos litros de combustível a aeronave utiliza por quilometro: ")
+          leia(medialitros)
+
+  escreva("Informe em litros a quantidade de combustivel na aeronave: ")
+          leia(abastecida)
+
+                  limpatela
+
+ trechototal <- kmplanejado + alternativo
+
+ litrostotal <- trechototal * medialitros
+
+ seg <- litrostotal * (30/100)
+
+ litrosseg <- litrostotal + seg
+
+ trechocmargem <- litrosseg / medialitros
+
+ abastecer <- litrostotal - abastecida
+
+
+ se litrosseg > tanque entao
+          escreva("Voo Reprovado, reveja seu planejamento.")
+
+ senao
+          escreval("Voo Aprovado, bom voo")
+
+
+   escreval("Trecho principal: ",kmplanejado," Km")
+  escreval("Trecho alternativo: ",alternativo," Km")
+  escreval("Total do trecho com a margem de segurança: ",trechocmargem,"Km")
+  escreval("Total de combustivel necessário para rota:", litrostotal ," litros")
+  escreval("Deve ser abastecida a aeronave com ",abastecer," litros de combustivel.")
+
+
+   fimse
+
+Fimalgoritmo
